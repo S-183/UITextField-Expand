@@ -77,7 +77,8 @@ static char length;
                 else
                 {
                     NSRange rangeRange = [toBeString rangeOfComposedCharacterSequencesForRange:NSMakeRange(0, self.maxLength)];
-                    textField.text = [toBeString substringWithRange:rangeRange];
+                    NSInteger tempLenght = rangeRange.length > self.maxLength ? rangeRange.length - rangeIndex.length : rangeRange.length;
+                    textField.text = [toBeString substringWithRange:NSMakeRange(0, tempLenght)];
                 }
             }
         }
